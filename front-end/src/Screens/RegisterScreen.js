@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import secret from "../Assets/secret.jpg";
+import reg from "../Assets/4274.jpg";
 import { Link } from "react-router-dom";
 
 const RegisterScreen = () => {
@@ -10,7 +11,7 @@ const RegisterScreen = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
       <div className="hidden sm:block">
-        <img className="w-full h-full object-cover" src={secret} alt="login" />
+        <img className="w-full h-full object-cover" src={reg} alt="login" />
       </div>
       <div className="bg-white flex flex-col justify-center">
         <form className="max-w-[400px] w-full mx-auto p-12 px-8 bg-red-100 rounded-lg">
@@ -34,7 +35,7 @@ const RegisterScreen = () => {
               Password
             </label>
             <input
-              className="rounded-lg bg-slate-100 mb-1 p-4 w-full"
+              className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Enter password"
               value={password}
@@ -47,7 +48,7 @@ const RegisterScreen = () => {
               Confirm Password
             </label>
             <input
-              className="rounded-lg bg-slate-100 mb-1 p-4 w-full"
+              className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Confirm password"
               value={confirmPassword}

@@ -33,7 +33,7 @@ const LoginScreen = () => {
               Password
             </label>
             <input
-              className="rounded-lg bg-slate-100 mb-1 p-4 w-full"
+              className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Enter password"
               value={password}
