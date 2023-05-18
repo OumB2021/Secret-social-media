@@ -34,6 +34,8 @@ const LoginScreen = () => {
       </div>
       <div className="bg-white flex flex-col justify-center">
         <form
+          action="/api/login"
+          method="POST"
           onSubmit={submitHandler}
           className="max-w-[400px] w-full mx-auto p-12 px-8 bg-red-100 rounded-lg"
         >
@@ -48,6 +50,7 @@ const LoginScreen = () => {
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Enter email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -60,6 +63,7 @@ const LoginScreen = () => {
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="password"
               placeholder="Enter password"
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

@@ -14,7 +14,11 @@ const RegisterScreen = () => {
         <img className="w-full h-full object-cover" src={reg} alt="login" />
       </div>
       <div className="bg-white flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto p-12 px-8 bg-gray-200 rounded-lg">
+        <form
+          action="/api/register"
+          method="POST"
+          className="max-w-[400px] w-full mx-auto p-12 px-8 bg-gray-200 rounded-lg"
+        >
           <h2 className="text-4xl font-bold text-center dark:text-orange-900">
             REGISTER
           </h2>
@@ -26,6 +30,7 @@ const RegisterScreen = () => {
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Enter Name"
+              name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -38,6 +43,7 @@ const RegisterScreen = () => {
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="text"
               placeholder="Enter email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -49,6 +55,7 @@ const RegisterScreen = () => {
             <input
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
               type="password"
+              name="password"
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
