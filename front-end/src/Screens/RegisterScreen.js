@@ -64,7 +64,7 @@ const RegisterScreen = () => {
             Already have an account ?{" "}
             <Link
               className="underline font-semibold hover:text-orange"
-              to={"/Login"}
+              to={"/login"}
             >
               Login
             </Link>
