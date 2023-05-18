@@ -3,6 +3,7 @@ import reg from "../Assets/4274.jpg";
 import { Link } from "react-router-dom";
 
 const RegisterScreen = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,6 +18,18 @@ const RegisterScreen = () => {
           <h2 className="text-4xl font-bold text-center dark:text-orange-900">
             REGISTER
           </h2>
+          <div>
+            <label className="p-2 flex flex-col py-2 text-lg focus:outline-none">
+              Name
+            </label>
+            <input
+              className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
+              type="text"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
           <div>
             <label className="p-2 flex flex-col py-2 text-lg focus:outline-none">
               Email
@@ -35,7 +48,7 @@ const RegisterScreen = () => {
             </label>
             <input
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
-              type="text"
+              type="password"
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -48,7 +61,7 @@ const RegisterScreen = () => {
             </label>
             <input
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
-              type="text"
+              type="password"
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}

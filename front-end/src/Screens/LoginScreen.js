@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import secret from "../Assets/secret.jpg";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../actions/userActions";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(login(email, password));
+  };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
@@ -12,7 +33,10 @@ const LoginScreen = () => {
         <img className="w-full h-full object-cover" src={secret} alt="login" />
       </div>
       <div className="bg-white flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto p-12 px-8 bg-red-100 rounded-lg">
+        <form
+          onSubmit={submitHandler}
+          className="max-w-[400px] w-full mx-auto p-12 px-8 bg-red-100 rounded-lg"
+        >
           <h2 className="text-4xl font-bold text-center dark:text-orange-900">
             SIGN IN
           </h2>
@@ -34,7 +58,7 @@ const LoginScreen = () => {
             </label>
             <input
               className="rounded-lg bg-slate-100 mb-2 p-4 w-full"
-              type="text"
+              type="password"
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
