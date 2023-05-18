@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import secret from "../Assets/secret.jpg";
+import React, { useState } from "react";
 import reg from "../Assets/4274.jpg";
 import { Link } from "react-router-dom";
 
@@ -14,9 +13,9 @@ const RegisterScreen = () => {
         <img className="w-full h-full object-cover" src={reg} alt="login" />
       </div>
       <div className="bg-white flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto p-12 px-8 bg-red-100 rounded-lg">
+        <form className="max-w-[400px] w-full mx-auto p-12 px-8 bg-gray-200 rounded-lg">
           <h2 className="text-4xl font-bold text-center dark:text-orange-900">
-            SIGN IN
+            REGISTER
           </h2>
           <div>
             <label className="p-2 flex flex-col py-2 text-lg focus:outline-none">
@@ -56,18 +55,18 @@ const RegisterScreen = () => {
             />
           </div>
           <button
-            className="w-full my-5 py-2 bg-red-400 shadow-sm text-xl font-bold rounded-lg text-white"
+            className="w-full my-5 py-2 bg-blue-400 shadow-sm text-xl font-bold rounded-lg text-white"
             type="submit"
           >
-            SIGN IN
+            REGISTER
           </button>
           <div className="text-center text-lg font-normal">
-            New Customer ?{" "}
+            Already have an account ?{" "}
             <Link
               className="underline font-semibold hover:text-orange"
-              to={"/register"}
+              to={"/Login"}
             >
-              Register
+              Login
             </Link>
           </div>
         </form>

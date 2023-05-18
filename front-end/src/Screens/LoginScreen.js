@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import secret from "../Assets/secret.jpg";
 import { Link } from "react-router-dom";
 
