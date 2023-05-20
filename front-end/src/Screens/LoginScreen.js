@@ -16,6 +16,15 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const storedUserInfo = localStorage.getItem("userInfo");
+    if (storedUserInfo) {
+      const parsedUserInfo = JSON.parse(storedUserInfo);
+      dispatch(login(parsedUserInfo));
+      navigate("/");
+    }
+  }, [dispatch, navigate]);
+
+  useEffect(() => {
     if (userInfo) {
       navigate("/");
     }
