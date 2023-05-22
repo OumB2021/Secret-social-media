@@ -5,7 +5,7 @@ const HeaderOption = ({ Icon, title }) => {
   return (
     <div className="headerOption">
       {Icon && <Icon className="headerOption__icon" />}
-      <h3>{title}</h3>
+      <h2 className="headerOption__title">{title}</h2>
     </div>
   );
 };

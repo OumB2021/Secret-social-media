@@ -2,4 +2,17 @@
   display: flex;
   margin: 0 1rem;
   align-items: center;
+  color: gray;
+  padding: 0.5rem 0.25rem;
+  font-size: large;
+}
+
+.headerOption:hover {
+  color: black !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .headerOption__title {
+    visibility: hidden;
+  }
 }

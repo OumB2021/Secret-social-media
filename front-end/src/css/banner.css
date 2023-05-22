@@ -1,0 +1,31 @@
+.banner {
+  margin-bottom: 150px;
+}
+
+img:first-child {
+  margin: 20px auto 20px auto;
+  object-fit: cover;
+  width: 60.625em;
+  height: 15.625em;
+  border-radius: 20px;
+}
+
+.profile {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 250px;
+  text-align: center;
+}
+
+.profile img {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  box-shadow: rgba(40, 40, 40, 0.5) 0px 5px 10px 0px;
+}
+
+.profile h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+}

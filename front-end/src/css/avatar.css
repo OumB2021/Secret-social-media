@@ -1,0 +1,6 @@
+.avatar > img {
+  width: 56px;
+  height: 56px;
+  object-fit: fill;
+  border-radius: 50%;
+}
