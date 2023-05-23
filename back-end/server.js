@@ -1,13 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import Post from "./models/postModel.js";
 import connectDB from "./config/db.js";
 import bodyParser from "body-parser";
+import asyncHandler from "express-async-handler";
 import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
 
 dotenv.config();
 connectDB();
-const router = express.Router();
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -16,6 +17,38 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("api running");
 });
+
+app.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { post, userInformation } = req.body;
+
+    const parsedObject = JSON.parse(userInformation.trim());
+    const userId = parsedObject._id;
+
+    console.log(userId);
+    try {
+      const newPost = new Post({
+        user: _id,
+        content: post,
+      });
+
+      const savedPost = await newPost.save();
+
+      res.status(200).json({
+        postId: savedPost._id,
+        userId: savedPost.user,
+        content: savedPost.content,
+        likes: savedPost.likes,
+        comments: savedPost.comments,
+        commentsCount: savedPost.commentsCount,
+        createdSince: savedPost.createdSince,
+      });
+    } catch (error) {
+      res.status(500).json({ parsedObject });
+    }
+  })
+);
 
 app.use("/api", userRoutes);
 

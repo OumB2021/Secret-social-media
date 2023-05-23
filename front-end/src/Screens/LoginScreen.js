@@ -21,19 +21,16 @@ const LoginScreen = () => {
       const parsedUserInfo = JSON.parse(storedUserInfo);
       dispatch(login(parsedUserInfo));
       navigate("/");
+    } else {
+      navigate("/login");
     }
   }, [dispatch, navigate]);
-
-  useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
-  }, [navigate, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     dispatch(login(email, password));
+    navigate("/");
   };
 
   return (

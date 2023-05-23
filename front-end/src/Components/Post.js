@@ -10,8 +10,14 @@ const Post = ({ avatar }) => {
 
   const handlePostSubmit = (e) => {
     e.preventDefault();
-    // Handle post submission logic here
-    console.log("Post submitted:", postText);
+    const userInformation = JSON.parse(localStorage.getItem("userInfo"));
+    const requestBody = {
+      post: postText,
+      userInformation: userInformation,
+    };
+    console.log("Request body:", requestBody);
+    // Submit the form with the requestBody data
+    // ...
     setPostText("");
   };
 
@@ -25,14 +31,21 @@ const Post = ({ avatar }) => {
             placeholder="What is your secret..."
             value={postText}
             onChange={handlePostTextChange}
+            name="post"
           ></textarea>
+          <input
+            type="hidden"
+            name="userInformation"
+            value={JSON.stringify(localStorage.getItem("userInfo"))}
+          />
+          <button
+            type="submit"
+            disabled={postText.length === 0}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+          >
+            Post
+          </button>
         </form>
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-          onClick={handlePostSubmit}
-        >
-          Post
-        </button>
       </div>
     </div>
   );
