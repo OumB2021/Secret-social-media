@@ -1,4 +1,4 @@
-#How to run the project.
+# How to run the project.
 
 step 1 : Have mongoDB installed on your local machine
 step 2 : setup an .env variable with the following :
@@ -8,3 +8,7 @@ JWT_SECRET=your_secret_key_here
 step 3 : from the root directory, run "npm i" to install required dependencies
 step 4 : cd to the front-end directory and run "npm i" to install all the dependencies.
 step 5 : from the root directory, run npm run dev. The app will be running on localhost 3000
+
+# Project details
+
+The project requirements are still incomplete. A lot more has to be implemented but the main features are running fine. The project will still be updated and more features will be added.
