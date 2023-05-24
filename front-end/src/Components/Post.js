@@ -13,11 +13,10 @@ const Post = ({ avatar }) => {
     const userInformation = JSON.parse(localStorage.getItem("userInfo"));
     const requestBody = {
       post: postText,
-      userInformation: userInformation,
+      userInformation: userInformation._id,
     };
     console.log("Request body:", requestBody);
-    // Submit the form with the requestBody data
-    // ...
+
     setPostText("");
   };
 
@@ -42,6 +41,7 @@ const Post = ({ avatar }) => {
             type="submit"
             disabled={postText.length === 0}
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+            onSubmit={handlePostSubmit}
           >
             Post
           </button>

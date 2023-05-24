@@ -4,7 +4,6 @@ import KeyIcon from "@mui/icons-material/Key";
 import "../css/header.css";
 import HeaderOption from "./HeaderOption";
 import InfoIcon from "@mui/icons-material/Info";
-import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -22,10 +21,6 @@ const Header = () => {
         <Link to="/about">
           {" "}
           <HeaderOption Icon={InfoIcon} title="About Us" />
-        </Link>
-        <Link to="/profile">
-          {" "}
-          <HeaderOption Icon={PersonIcon} title="Profile" />
         </Link>
         <Link>
           {" "}

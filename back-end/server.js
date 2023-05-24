@@ -14,19 +14,22 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("api running");
-});
+app.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const posts = await Post.find({});
+    res.json(posts);
+  })
+);
 
 app.post(
   "/",
   asyncHandler(async (req, res) => {
     const { post, userInformation } = req.body;
 
-    const parsedObject = JSON.parse(userInformation.trim());
-    const userId = parsedObject._id;
-
-    console.log(userId);
+    const parsedUserInformation = JSON.parse(userInformation);
+    const { _id } = JSON.parse(parsedUserInformation);
+    console.log(_id);
     try {
       const newPost = new Post({
         user: _id,
@@ -45,7 +48,7 @@ app.post(
         createdSince: savedPost.createdSince,
       });
     } catch (error) {
-      res.status(500).json({ parsedObject });
+      res.status(500).json({ error: "Couldn't create post" });
     }
   })
 );
